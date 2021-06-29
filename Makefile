@@ -67,8 +67,7 @@ clean:
 	@docker rmi -f $(DOCKERHUB_ID)/$(SERVICE_NAME)_$(ARCH):$(SERVICE_VERSION) >/dev/null 2>&1 || :
 
 agent-run:
-	hzn register --pattern "${HZN_ORG_ID}/$(PATTERN_NAME)"
-	hzn policy update -f privileged.json
+	hzn register --policy privileged.json --pattern "${HZN_ORG_ID}/$(PATTERN_NAME)"
 
 agent-stop:
 	hzn unregister -f
