@@ -1,0 +1,33 @@
+{
+  "org": "$HZN_ORG_ID",
+  "label": "$SERVICE_NAME for $ARCH",
+  "url": "$SERVICE_NAME",
+  "version": "$SERVICE_VERSION",
+  "arch": "$ARCH",
+  "public": true,
+  "sharable": "singleton",
+  "requiredServices": [],
+  "userInput": [
+    {
+      "name": "GATEWAY",
+      "label": "The address of the network gateway for this node's LAN",
+      "type": "string",
+      "defaultValue": "$GATEWAY"
+    },
+    {
+      "name": "IPV4_ADDR",
+      "label": "The LAN IP address of this node.",
+      "type": "string",
+      "defaultValue": "$IPV4_ADDR"
+    }
+  ],
+  "deployment": {
+    "services": {
+      "$SERVICE_NAME": {
+        "privileged": true,
+        "image": "$SERVICE_CONTAINER"
+      }
+    }
+  }
+}
+
